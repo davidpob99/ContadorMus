@@ -1,0 +1,66 @@
+<ion-view style="" id="page2" title="Contador">    
+    <ion-content class="has-header" padding="true">
+        <label class="item item-input">                
+                <input style="color:#FF0000;text-align:center;" placeholder="Jugador 1-Jugador 3" type="text">
+            </label>
+        <div style="width: 300px; height: 15px;" class="spacer"></div>
+        <div style="color:#FF0000;font-size:50px;text-align:center;" id="contador-markdown9">
+            <p>{{e1}}</p>
+        </div>        
+        <div style="color:#FF0000;text-align:center;" id="contador-markdown8">
+            <p>Vacas: {{v1}}</p>
+        </div>
+        <div class="button-bar">
+            <button class=" button button-outline button-assertive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button1">+</button>
+            <button ng-click="mas1()" class=" button button-assertive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button1">1</button>
+            <button ng-click="mas2()" class=" button button-assertive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button2">2</button>
+            <button ng-click="mas3()" class=" button button-assertive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button3">3</button>
+            <button ng-click="mas5()" class=" button button-assertive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button4">5</button> 
+            <button ng-click="mas10()" class=" button button-assertive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button6">10</button>
+            <button ng-click="mas40()"  class=" button button-assertive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button7">40</button>
+        </div>
+        <div style="width: 300px; height: 8px;" class="spacer"></div>
+        <div class="button-bar">
+            <button class=" button button-outline button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button8" >-</button>
+            <button ng-click="menos1()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button8" >1</button>
+            <button ng-click="menos2()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button9" >2</button>
+            <button ng-click="menos3()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button10" >3</button>
+            <button ng-click="menos5()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button11" >5</button>
+            <button ng-click="menos10()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button13" >10</button>  
+            <button ng-click="menos40()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button14" >40</button>
+        </div>
+        <div style="width: 300px; height: 15px;" class="spacer"></div>
+        <label class="item item-input">                
+                <input style="color:#0000FF;text-align:center;" placeholder="Jugador 2-Jugador 4" type="text">
+            </label>
+        <div style="width: 300px; height: 15px;" class="spacer"></div>
+        <div style="color:#0000FF;font-size:50px;text-align:center;" id="contador-markdown10">
+            <p>{{e2}}</p>
+        </div>
+        <div style="color:#0000FF;text-align:center;" id="contador-markdown11">
+            <p>Vacas: {{v2}}</p>
+        </div>
+        <div class="button-bar">
+            <button class=" button button-outline button-positive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button15">+</button>
+            <button ng-click="mas1b()" class=" button button-positive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button15">1</button>
+            <button ng-click="mas2b()" class=" button button-positive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button16">2</button>
+            <button ng-click="mas3b()" class=" button button-positive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button17">3</button>
+            <button ng-click="mas5b()" class=" button button-positive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button18">5</button> 
+            <button ng-click="mas10b()" class=" button button-positive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button20">10</button> 
+            <button ng-click="mas40b()" class=" button button-positive button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button21">40</button>
+        </div>
+        <div style="width: 300px; height: 10px;" class="spacer"></div>
+        <div class="button-bar">
+            <button class=" button button-outline button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button22" >-</button>
+            <button ng-click="menos1b()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button22" >1</button>
+            <button ng-click="menos2b()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button23" >2</button>
+            <button ng-click="menos3b()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button24" >3</button>
+            <button ng-click="menos5b()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button25" >5</button>
+            <button ng-click="menos10b()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button27" >10</button> 
+            <button ng-click="menos40b()" class=" button button-dark button-small " style="border-radius:1px 1px 1px 1px;" id="contador-button28" >40</button>
+        </div>         
+        <div style="margin-right:-20px;">
+            <button ng-click="reset()" class=" button button-positive  button-full icon-left ion-android-refresh " style="left:-10px;" id="contador-button54">Reiniciar partida</button>
+        </div>       
+    </ion-content>   
+</ion-view>
