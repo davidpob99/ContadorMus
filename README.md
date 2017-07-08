@@ -1,7 +1,7 @@
 # Contador de mus
 Un simple contador para partidas de mus. Desarrollado con Android Studio y  Apache Cordova e Ionic Framework (Windows) bajo licencia GPL v3.
 ## Página Web del Proyecto
-https://davidpob99.github.io/ContadorPocha/
+https://davidpob99.github.io/ContadorMus/
 ## Descargar
 ### Android
 
