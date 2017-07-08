@@ -1,0 +1,379 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="es.davidpob99.ContadorMus.ContadorFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="Jugador 1 - Jugador 3"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_blue_light" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editText1"
+                android:text="Vacas: 0"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_blue_light" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textView1"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView2"
+                app:srcCompat="@drawable/ic_add_black_24dp"
+                android:tint="@android:color/holo_blue_light"
+                tools:ignore="VectorDrawableCompat" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/imageView2"
+                android:id="@+id/linearLayout"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button1"
+                    android:backgroundTint="@android:color/holo_blue_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/uno" />
+
+                <Button
+
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_blue_light"
+                    android:layout_weight="1"
+                    android:text="@string/dos" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_blue_light"
+                    android:layout_weight="1"
+                    android:text="@string/tres" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_blue_light"
+                    android:layout_weight="1"
+                    android:text="@string/cinco" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_blue_light"
+                    android:layout_weight="1"
+                    android:text="@string/diez" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_blue_light"
+                    android:layout_weight="1"
+                    android:text="@string/cuarenta"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout"
+                app:srcCompat="@drawable/ic_remove_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/imageView3"
+                android:id="@+id/linearLayout2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@android:color/black"
+                    android:layout_weight="1"
+                    android:text="@string/uno" />
+
+                <Button
+
+                    android:id="@+id/button8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@android:color/black"
+                    android:layout_weight="1"
+                    android:text="@string/dos" />
+
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@android:color/black"
+                    android:layout_weight="1"
+                    android:text="@string/tres" />
+
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@android:color/black"
+                    android:layout_weight="1"
+                    android:text="@string/cinco" />
+
+                <Button
+                    android:id="@+id/button11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@android:color/black"
+                    android:layout_weight="1"
+                    android:text="@string/diez" />
+
+                <Button
+                    android:id="@+id/button12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@android:color/black"
+                    android:layout_weight="1"
+                    android:text="@string/cuarenta"/>
+            </LinearLayout>
+
+            <!-- JUGADOR 2 -->
+
+            <EditText
+                android:id="@+id/editText101"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="Jugador 2 - Jugador 4"
+                android:layout_below="@id/linearLayout2"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light" />
+
+            <TextView
+                android:id="@+id/textView101"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editText101"
+                android:text="Vacas: 0"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light" />
+
+            <TextView
+                android:id="@+id/textView102"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textView101"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/imageView101"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView102"
+                app:srcCompat="@drawable/ic_add_black_24dp"
+                android:tint="@android:color/holo_red_light"
+                tools:ignore="VectorDrawableCompat" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/imageView101"
+                android:id="@+id/linearLayout101"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button101"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/uno" />
+
+                <Button
+
+                    android:id="@+id/button102"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:layout_weight="1"
+                    android:text="@string/dos" />
+
+                <Button
+                    android:id="@+id/button103"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:layout_weight="1"
+                    android:text="@string/tres" />
+
+                <Button
+                    android:id="@+id/button104"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:layout_weight="1"
+                    android:text="@string/cinco" />
+
+                <Button
+                    android:id="@+id/button105"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:layout_weight="1"
+                    android:text="@string/diez" />
+
+                <Button
+                    android:id="@+id/button106"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:layout_weight="1"
+                    android:text="@string/cuarenta"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView102"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout101"
+                app:srcCompat="@drawable/ic_remove_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout102"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/imageView102"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/button107"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/uno"
+                    android:textColor="@android:color/white" />
+
+                <Button
+
+                    android:id="@+id/button108"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/dos"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/button109"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/tres"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/button1010"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/cinco"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/button1011"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/diez"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/button1012"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/cuarenta"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout102"
+                android:drawableLeft="@drawable/ic_refresh_black_24dp"
+                android:text="Reiniciar" />
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+</FrameLayout>
