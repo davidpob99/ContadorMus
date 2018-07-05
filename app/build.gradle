@@ -1,0 +1,62 @@
+/*
+ * Copyright (c) 2016 - 2018 David Población.
+ *
+ *     This file is part of ContadorMus.
+ *
+ *     ContadorMus is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     Foobar is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Last modified 20/06/18 18:25
+ */
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "es.davidpob99.ContadorMus"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 8
+        versionName "3.1.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support:design:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'ru.noties:markwon:1.0.5'
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.github.apl-devs:appintro:v4.2.3'
+}

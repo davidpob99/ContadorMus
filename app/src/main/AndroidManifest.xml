@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2016 - 2018 David Población.
+  ~
+  ~     This file is part of ContadorMus.
+  ~
+  ~     ContadorMus is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Foobar is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  ~ Last modified 20/06/18 18:25
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="es.davidpob99.ContadorMus">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ManoActivity"
+            android:label="@string/title_activity_mano"
+            android:parentActivityName=".InfoPartidaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="es.davidpob99.ContadorMus.InfoPartidaActivity" />
+        </activity>
+        <activity
+            android:name=".NuevoActivity"
+            android:label="@string/title_activity_nuevo"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="es.davidpob99.ContadorMus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".InfoPartidaActivity"
+            android:label="@string/title_activity_info_partida"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="es.davidpob99.ContadorMus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".TextoActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="es.davidpob99.ContadorMus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/action_about"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="es.davidpob99.ContadorMus.MainActivity" />
+        </activity>
+        <activity
+            android:name=".IntroActivity"
+            android:label="@string/title_activity_intro"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>

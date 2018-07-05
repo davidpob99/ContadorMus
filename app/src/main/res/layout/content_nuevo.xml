@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2016 - 2018 David Población.
+  ~
+  ~     This file is part of ContadorMus.
+  ~
+  ~     ContadorMus is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Foobar is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  ~ Last modified 20/06/18 18:25
+  -->
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".NuevoActivity"
+    tools:showIn="@layout/activity_nuevo">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <EditText
+                android:id="@+id/etE1Nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_shield"
+                android:ems="10"
+                android:hint="Equipo 1"
+                android:inputType="textCapWords"
+                android:maxLength="10"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etE1J1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                android:ems="10"
+                android:hint="Jugador 1 Equipo 1"
+                android:inputType="textCapWords"
+                android:maxLength="10" />
+
+            <EditText
+                android:id="@+id/etE1J2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                android:ems="10"
+                android:hint="Jugador 2 Equipo 1"
+                android:inputType="textCapWords"
+                android:maxLength="10" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="@color/colorPrimaryDark" />
+
+            <EditText
+                android:id="@+id/etE2Nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_shield_outline"
+                android:ems="10"
+                android:hint="Equipo 2"
+                android:inputType="textCapWords"
+                android:maxLength="10"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etE2J1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                android:ems="10"
+                android:hint="Jugador 1 Equipo 2"
+                android:inputType="textCapWords"
+                android:maxLength="10" />
+
+            <EditText
+                android:id="@+id/etE2J2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                android:ems="10"
+                android:hint="Jugador 2 Equipo 2"
+                android:inputType="textCapWords"
+                android:maxLength="10" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="@color/colorPrimaryDark" />
+
+            <EditText
+                android:id="@+id/etNJuegos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="123456789"
+                android:drawableLeft="@drawable/ic_numeric"
+                android:ems="10"
+                android:hint="Número Juegos Totales"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etNVacas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="123456789"
+                android:drawableLeft="@drawable/ic_cow"
+                android:ems="10"
+                android:hint="Número Vacas Totales"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etObservaciones"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/ic_search_black_24dp"
+                android:ems="10"
+                android:hint="Observaciones"
+                android:inputType="textMultiLine" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
