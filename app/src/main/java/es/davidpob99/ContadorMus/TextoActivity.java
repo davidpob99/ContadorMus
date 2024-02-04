@@ -1,22 +1,20 @@
 /*
- * Copyright (c) 2016 - 2018 David Población.
+ * Copyright (c) 2016 - 2019 David Población.
  *
- *     This file is part of ContadorMus.
+ * This file is part of ContadorMus.
  *
- *     ContadorMus is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
+ * ContadorMus is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *     Foobar is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
+ * ContadorMus is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *     You should have received a copy of the GNU General Public License
- *     along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
- *
- * Last modified 20/06/18 18:25
+ * You should have received a copy of the GNU General Public License
+ * along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package es.davidpob99.ContadorMus;
@@ -24,7 +22,7 @@ package es.davidpob99.ContadorMus;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.TextView;
@@ -57,16 +55,9 @@ public class TextoActivity extends AppCompatActivity {
                 break;
 
             case "license":
-                try {
-                    texto.setText(fromHtml(getString(R.string.license_text)));
-                    setTitle(getString(R.string.action_license));
-                    getSupportActionBar().setDisplayHomeAsUpEnabled(false); // Back button
-                } catch (Exception e) {
-                    Log.e("OPEN LICENSE", "exception", e);
-                    startActivity(new Intent(TextoActivity.this, AboutActivity.class));
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gnu.org/licenses/gpl-3.0-standalone.html"));
-                    startActivity(browserIntent);
-                }
+                startActivity(new Intent(TextoActivity.this, AboutActivity.class));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.license_url)));
+                startActivity(browserIntent);
                 break;
         }
     }

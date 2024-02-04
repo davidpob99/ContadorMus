@@ -1,0 +1,116 @@
+<!--
+  ~ Copyright (c) 2016 - 2019 David Población.
+  ~
+  ~ This file is part of ContadorMus.
+  ~
+  ~ ContadorMus is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ ContadorMus is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Cont. Mus</string>
+    <string name="action_tutorial">Tutorial</string>
+    <string name="action_privacy">Política de privacidad</string>
+    <string name="action_third">Librerías de terceros</string>
+    <string name="action_about">Acerca de</string>
+    <string name="action_license">Licencia</string>
+
+    <string name="title_activity_main">Contador de Mus</string>
+    <string name="title_activity_mano">Nuevo Lance</string>
+    <string name="title_activity_nuevo">Nueva Partida</string>
+    <string name="title_activity_info_partida">Partida Actual</string>
+    <string name="title_activity_intro">Introducción</string>
+    <string name="about_text">Un simple contador para partidas de mus \n \n
+        Copyright &#169; 2016-2019 David Población\n\n
+        Este programa es libre: puede redistribuirlo y/o modificarlo bajo los términos de GNU General Public License (GPL), versión 3, tal y como está publicada en la Free Software Foundation. \n\n
+        Este programa se distribuye con la esperanza de resultar útil, pero SIN NINGUNA GARANTÍA; incluso sin la garantía implícita de COMERCIABILIDAD o IDONEIDAD PARA UN PROPÓSITO PARTICULAR. Ver la GNU General Public License (GPL), versión 3, para
+        más detalles.</string>
+    <string name="privacy_text">
+    <![CDATA[
+        <p>Las aplicación no usa nungún sistema de análisis de datos, es decir, todos los datos que se ingresan en la app no se envían a ningún servidor por lo que quedan grabados exclusivamente en el dispositivo del usuario, siendo este el único propietario de los mismos.</p>
+
+        <p>Asimismo, Google como distribuidor de las aplicaciones en su plataforma Google Play (http://play.google.com), puede recoger datos de adquisición, entre otros.<br><br>
+        Los anuncios que usa la aplicación son provistos por AdMob <https://www.google.com/admob/>, un producto de Google que puede recopilar información sobre su uso. Para restringir su personalización, hágalo en los ajustes de privacidad de la cuenta de Google.<br><br>
+        Ver política de privacidad de Google (https://www.google.com/policies/privacy/)</p>
+
+        <h4>Modificaciones a la Política de Privacidad</h4>
+
+        <p>El desarrollador se reserva el derecho de modificar, rectificar, alterar, agregar o eliminar cualquier punto del presente escrito en cualquier momento y sin previo aviso, siendo su responsabilidad el mantenerse informado del mismo para una adecuada administración de su información.</p>
+
+        ]]></string>
+    <string name="license_url">https://www.gnu.org/licenses/gpl-3.0-standalone.html</string>
+    <string name="third_text" tools:ignore="TypographyOther">
+        ## AppIntro\n
+
+        Copyright 2015 Paolo Rotolo\n
+        Copyright 2018 APL Devs\n\n
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at\n\n
+
+           http://www.apache.org/licenses/LICENSE-2.0\n\n
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+
+        \n## Markwon\n
+
+        Copyright 2017 Dimitry Ivanov (mail@dimitryivanov.ru)\n\n
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at\n\n
+            http://www.apache.org/licenses/LICENSE-2.0\n\n
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+
+        \n## Material Design Icons\n
+
+        Copyright (c) 2014, Austin Andrews (http://materialdesignicons.com/),
+        with Reserved Font Name Material Design Icons.\n
+
+        Copyright (c) 2014, Google (http://www.google.com/design/)
+        uses the license at https://github.com/google/material-design-icons/blob/master/LICENSE\n\n
+        This Font Software is licensed under the SIL Open Font License, Version 1.1.
+        This license is copied below, and is also available with a FAQ at:
+        http://scripts.sil.org/OFL
+
+        \n## Material Design icons by Google\n
+
+        Copyright 2014 Google (http://www.google.com/design/)\n\n
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at\n\n
+            http://www.apache.org/licenses/LICENSE-2.0\n\n
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+
+    <!-- Contador -->
+    <string name="uno">1</string>
+    <string name="dos">2</string>
+    <string name="tres">3</string>
+    <string name="cinco">5</string>
+    <string name="diez">10</string>
+    <string name="cuarenta">40</string>
+
+</resources>

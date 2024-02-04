@@ -1,22 +1,20 @@
 /*
- * Copyright (c) 2016 - 2018 David Población.
+ * Copyright (c) 2016 - 2019 David Población.
  *
- *     This file is part of ContadorMus.
+ * This file is part of ContadorMus.
  *
- *     ContadorMus is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
+ * ContadorMus is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *     Foobar is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
+ * ContadorMus is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *     You should have received a copy of the GNU General Public License
- *     along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
- *
- * Last modified 20/06/18 18:25
+ * You should have received a copy of the GNU General Public License
+ * along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package es.davidpob99.ContadorMus;
@@ -28,10 +26,10 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -67,7 +65,7 @@ public class InfoPartidaActivity extends AppCompatActivity {
 
     Button delete;
     Button reset;
-    FloatingActionButton fab;
+    FloatingActionButton fab, fabClassic;
 
     Gson gson;
     int position;
@@ -101,6 +99,7 @@ public class InfoPartidaActivity extends AppCompatActivity {
         delete = findViewById(R.id.bDelete);
         reset = findViewById(R.id.bReset);
         fab = findViewById(R.id.fab);
+        fabClassic = findViewById(R.id.fabClassic);
 
 
         // ANUNCIOS
@@ -137,6 +136,16 @@ public class InfoPartidaActivity extends AppCompatActivity {
                 final String mPartidaString = gson.toJson(mPartida); // Pasar datos a json para otra actividad
                 // Abrir otra actividad
                 Intent myIntent = new Intent(InfoPartidaActivity.this, ManoActivity.class);
+                myIntent.putExtra("partidaActual", mPartidaString);
+                startActivity(myIntent);
+            }
+        });
+        // Cuando se pulsa el botón de versión clásica (izquierda)
+        fabClassic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String mPartidaString = gson.toJson(mPartida); // Pasar datos a json para otra actividad
+                Intent myIntent = new Intent(InfoPartidaActivity.this, ContadorActivity.class);
                 myIntent.putExtra("partidaActual", mPartidaString);
                 startActivity(myIntent);
             }
@@ -204,9 +213,11 @@ public class InfoPartidaActivity extends AppCompatActivity {
                         mPartida.e2.setVacas(0);
                         mPartida.setFecha(Calendar.getInstance().getTime());
                         mPartida.setFinalizada(false);
-                        mPartida.setMsg("EN CURSO");
+                        mPartida.setMsg("EN JUEGO");
                         fab.setEnabled(true);
+                        fabClassic.setEnabled(true);
                         fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#965994")));
+                        fabClassic.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#005ecb")));
                         actualizarMarcador();
                     }
                 });
@@ -232,6 +243,8 @@ public class InfoPartidaActivity extends AppCompatActivity {
         if (mPartida.finalizada) {
             fab.setEnabled(false);
             fab.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+            fabClassic.setEnabled(false);
+            fabClassic.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
         }
     }
 

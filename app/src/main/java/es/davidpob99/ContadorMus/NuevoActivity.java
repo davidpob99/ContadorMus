@@ -1,31 +1,29 @@
 /*
- * Copyright (c) 2016 - 2018 David Población.
+ * Copyright (c) 2016 - 2019 David Población.
  *
- *     This file is part of ContadorMus.
+ * This file is part of ContadorMus.
  *
- *     ContadorMus is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
+ * ContadorMus is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *     Foobar is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
+ * ContadorMus is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *     You should have received a copy of the GNU General Public License
- *     along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
- *
- * Last modified 20/06/18 18:25
+ * You should have received a copy of the GNU General Public License
+ * along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package es.davidpob99.ContadorMus;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
@@ -69,11 +67,11 @@ public class NuevoActivity extends AppCompatActivity {
                 Partida mPartida = new Partida((njuegos.getText().toString().matches("-?\\d+")) ? Integer.parseInt(njuegos.getText().toString()) : 3,
                         (nvacas.getText().toString().matches("-?\\d+")) ? Integer.parseInt(nvacas.getText().toString()) : 3,
                         new Equipo((!e1Nombre.getText().toString().matches("")) ? e1Nombre.getText().toString() : "Equipo 1",
-                                (!e1J1.getText().toString().matches("")) ? e1J1.getText().toString() : "Jugador 1 Equipo 1 ",
-                                (!e1J2.getText().toString().matches("")) ? e1J2.getText().toString() : "Jugador 2 Equipo 1 "),
+                                (!e1J1.getText().toString().matches("")) ? e1J1.getText().toString() : "Jugador 1",
+                                (!e1J2.getText().toString().matches("")) ? e1J2.getText().toString() : "Jugador 2"),
                         new Equipo((!e2Nombre.getText().toString().matches("")) ? e2Nombre.getText().toString() : "Equipo 2",
-                                (!e2J1.getText().toString().matches("")) ? e2J1.getText().toString() : "Jugador 1 Equipo 2 ",
-                                (!e2J2.getText().toString().matches("")) ? e2J2.getText().toString() : "Jugador 2 Equipo 2 "),
+                                (!e2J1.getText().toString().matches("")) ? e2J1.getText().toString() : "Jugador 1",
+                                (!e2J2.getText().toString().matches("")) ? e2J2.getText().toString() : "Jugador 2"),
                         (!observaciones.getText().toString().matches("")) ? observaciones.getText().toString() : "-");
                 Gson gson = new Gson();
                 String mPartidaString = gson.toJson(mPartida);
