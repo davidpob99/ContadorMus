@@ -1,37 +1,45 @@
 /*
- * Copyright (c) 2016 - 2019 David Población.
+ *  Copyright (c) 2024 David Población.
  *
- * This file is part of ContadorMus.
+ *  This file is part of ContadorMus.
  *
- * ContadorMus is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ *  ContadorMus is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * ContadorMus is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *  ContadorMus is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+ *  You should have received a copy of the GNU General Public License
+ *  along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package es.davidpob99.ContadorMus;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.gson.Gson;
 
 public class ContadorActivity extends AppCompatActivity implements View.OnClickListener {
@@ -54,80 +62,91 @@ public class ContadorActivity extends AppCompatActivity implements View.OnClickL
         final String mPartidaString = getIntent().getStringExtra("partidaActual");
         mPartida = gson.fromJson(mPartidaString, Partida.class);
 
-        tx1 = (TextView) findViewById(R.id.textView2);
-        tx2 = (TextView) findViewById(R.id.textView102);
-        v1 = (TextView) findViewById(R.id.textView1);
-        v2 = (TextView) findViewById(R.id.textView101);
+        tx1 = findViewById(R.id.textView2);
+        tx2 = findViewById(R.id.textView102);
+        v1 = findViewById(R.id.textView1);
+        v2 = findViewById(R.id.textView101);
 
-        et1 = (TextView) findViewById(R.id.editText1);
-        et2 = (TextView) findViewById(R.id.editText101);
+        et1 = findViewById(R.id.editText1);
+        et2 = findViewById(R.id.editText101);
 
-        btn1 = (Button) findViewById(R.id.button1);
+        btn1 = findViewById(R.id.button1);
         btn1.setOnClickListener(this);
-        btn2 = (Button) findViewById(R.id.button2);
+        btn2 = findViewById(R.id.button2);
         btn2.setOnClickListener(this);
-        btn3 = (Button) findViewById(R.id.button3);
+        btn3 = findViewById(R.id.button3);
         btn3.setOnClickListener(this);
-        btn4 = (Button) findViewById(R.id.button4);
+        btn4 = findViewById(R.id.button4);
         btn4.setOnClickListener(this);
-        btn5 = (Button) findViewById(R.id.button5);
+        btn5 = findViewById(R.id.button5);
         btn5.setOnClickListener(this);
-        btn6 = (Button) findViewById(R.id.button6);
+        btn6 = findViewById(R.id.button6);
         btn6.setOnClickListener(this);
-        btn7 = (Button) findViewById(R.id.button7);
+        btn7 = findViewById(R.id.button7);
         btn7.setOnClickListener(this);
-        btn8 = (Button) findViewById(R.id.button8);
+        btn8 = findViewById(R.id.button8);
         btn8.setOnClickListener(this);
-        btn9 = (Button) findViewById(R.id.button9);
+        btn9 = findViewById(R.id.button9);
         btn9.setOnClickListener(this);
-        btn10 = (Button) findViewById(R.id.button10);
+        btn10 = findViewById(R.id.button10);
         btn10.setOnClickListener(this);
-        btn11 = (Button) findViewById(R.id.button11);
+        btn11 = findViewById(R.id.button11);
         btn11.setOnClickListener(this);
-        btn12 = (Button) findViewById(R.id.button12);
+        btn12 = findViewById(R.id.button12);
         btn12.setOnClickListener(this);
 
 
-        btn101 = (Button) findViewById(R.id.button101);
+        btn101 = findViewById(R.id.button101);
         btn101.setOnClickListener(this);
-        btn102 = (Button) findViewById(R.id.button102);
+        btn102 = findViewById(R.id.button102);
         btn102.setOnClickListener(this);
-        btn103 = (Button) findViewById(R.id.button103);
+        btn103 = findViewById(R.id.button103);
         btn103.setOnClickListener(this);
-        btn104 = (Button) findViewById(R.id.button104);
+        btn104 = findViewById(R.id.button104);
         btn104.setOnClickListener(this);
-        btn105 = (Button) findViewById(R.id.button105);
+        btn105 = findViewById(R.id.button105);
         btn105.setOnClickListener(this);
-        btn106 = (Button) findViewById(R.id.button106);
+        btn106 = findViewById(R.id.button106);
         btn106.setOnClickListener(this);
-        btn107 = (Button) findViewById(R.id.button107);
+        btn107 = findViewById(R.id.button107);
         btn107.setOnClickListener(this);
-        btn108 = (Button) findViewById(R.id.button108);
+        btn108 = findViewById(R.id.button108);
         btn108.setOnClickListener(this);
-        btn109 = (Button) findViewById(R.id.button109);
+        btn109 = findViewById(R.id.button109);
         btn109.setOnClickListener(this);
-        btn1010 = (Button) findViewById(R.id.button1010);
+        btn1010 = findViewById(R.id.button1010);
         btn1010.setOnClickListener(this);
-        btn1011 = (Button) findViewById(R.id.button1011);
+        btn1011 = findViewById(R.id.button1011);
         btn1011.setOnClickListener(this);
-        btn1012 = (Button) findViewById(R.id.button1012);
+        btn1012 = findViewById(R.id.button1012);
         btn1012.setOnClickListener(this);
-        /*btnmod = (Button) findViewById(R.id.bModern);
-        btnmod.setOnClickListener(this);
 
-        btnreset = (Button) findViewById(R.id.bReset);
-        btnreset.setOnClickListener(this);*/
+        AdRequest adRequestInter = new AdRequest.Builder().build();
+        InterstitialAd.load(this, getResources().getString(R.string.interstitial_full_screen), adRequestInter,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
 
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.d("Ads", loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
 
         et1.setText(mPartida.e1.getJugador1() + " - " + mPartida.e1.getJugador2());
         et2.setText(mPartida.e2.getJugador1() + " - " + mPartida.e2.getJugador2());
         actualizarMarcador();
 
-        // ANUNCIOS
         mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        mInterstitialAd = new InterstitialAd(this);
     }
 
     @Override
@@ -312,8 +331,8 @@ public class ContadorActivity extends AppCompatActivity implements View.OnClickL
                     mPartida.finalizada = true;
                     mPartida.setMsg("HA GANADO " + mPartida.e1.nombre);
                     toast.show();
-                    cargarAnuncio();
-                    volver();
+                    showInterstitial();
+                    // volver();
                 }
             }
 
@@ -330,8 +349,8 @@ public class ContadorActivity extends AppCompatActivity implements View.OnClickL
                     mPartida.setMsg("HA GANADO " + mPartida.e2.nombre);
                     mPartida.finalizada = true;
                     toast.show();
-                    cargarAnuncio();
-                    volver();
+                    showInterstitial();
+                    // volver();
                 }
             }
         }
@@ -341,8 +360,8 @@ public class ContadorActivity extends AppCompatActivity implements View.OnClickL
         // Actualiza la puntuación
         tx1.setText(Integer.toString(mPartida.getE1().getPuntuacion()));
         tx2.setText(Integer.toString(mPartida.getE2().getPuntuacion()));
-        v1.setText("Juegos: " + String.valueOf(mPartida.e1.getJuegos()) + ", Vacas: " + String.valueOf(mPartida.e1.getVacas()));
-        v2.setText("Juegos: " + String.valueOf(mPartida.e2.getJuegos()) + ", Vacas: " + String.valueOf(mPartida.e2.getVacas()));
+        v1.setText("Juegos: " + mPartida.e1.getJuegos() + ", Vacas: " + mPartida.e1.getVacas());
+        v2.setText("Juegos: " + mPartida.e2.getJuegos() + ", Vacas: " + mPartida.e2.getVacas());
     }
 
     public void volver() {
@@ -353,23 +372,48 @@ public class ContadorActivity extends AppCompatActivity implements View.OnClickL
         startActivity(myIntent);
     }
 
-    public void cargarAnuncio() {
-        // set the ad unit ID
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_full_screen));
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
-        // Load ads into Interstitial Ads
-        mInterstitialAd.loadAd(adRequest);
+    private void showInterstitial() {
+        mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+            @Override
+            public void onAdClicked() {
+                // Called when a click is recorded for an ad.
+                Log.d(TAG, "Ad was clicked.");
+                volver();
+            }
 
-        mInterstitialAd.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-                showInterstitial();
+            @Override
+            public void onAdDismissedFullScreenContent() {
+                // Called when ad is dismissed.
+                // Set the ad reference to null so you don't show the ad a second time.
+                Log.d(TAG, "Ad dismissed fullscreen content.");
+                mInterstitialAd = null;
+                volver();
+            }
+
+            @Override
+            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                // Called when ad fails to show.
+                Log.e(TAG, "Ad failed to show fullscreen content.");
+                mInterstitialAd = null;
+                volver();
+            }
+
+            @Override
+            public void onAdImpression() {
+                // Called when an impression is recorded for an ad.
+                Log.d(TAG, "Ad recorded an impression.");
+            }
+
+            @Override
+            public void onAdShowedFullScreenContent() {
+                // Called when ad is shown.
+                Log.d(TAG, "Ad showed fullscreen content.");
             }
         });
-    }
-
-    private void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(ContadorActivity.this);
+        } else {
+            Log.d("Ads", "The interstitial ad wasn't ready yet.");
         }
     }
 }

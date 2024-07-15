@@ -1,24 +1,24 @@
 <!--
-  ~ Copyright (c) 2016 - 2019 David Población.
+  ~  Copyright (c) 2024 David Población.
   ~
-  ~ This file is part of ContadorMus.
+  ~  This file is part of ContadorMus.
   ~
-  ~ ContadorMus is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
+  ~  ContadorMus is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
   ~
-  ~ ContadorMus is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
+  ~  ContadorMus is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
   ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Cont. Mus</string>
+    <string name="app_name">Contador Mus</string>
     <string name="action_tutorial">Tutorial</string>
     <string name="action_privacy">Política de privacidad</string>
     <string name="action_third">Librerías de terceros</string>
@@ -31,7 +31,7 @@
     <string name="title_activity_info_partida">Partida Actual</string>
     <string name="title_activity_intro">Introducción</string>
     <string name="about_text">Un simple contador para partidas de mus \n \n
-        Copyright &#169; 2016-2019 David Población\n\n
+        Copyright &#169; 2016-2024 David Población\n\n
         Este programa es libre: puede redistribuirlo y/o modificarlo bajo los términos de GNU General Public License (GPL), versión 3, tal y como está publicada en la Free Software Foundation. \n\n
         Este programa se distribuye con la esperanza de resultar útil, pero SIN NINGUNA GARANTÍA; incluso sin la garantía implícita de COMERCIABILIDAD o IDONEIDAD PARA UN PROPÓSITO PARTICULAR. Ver la GNU General Public License (GPL), versión 3, para
         más detalles.</string>
@@ -112,5 +112,10 @@
     <string name="cinco">5</string>
     <string name="diez">10</string>
     <string name="cuarenta">40</string>
+    <string name="infopartida_mayuda1">Para comenzar, seleccione uno de los dos botones inferiores:\n
+    · Contador clásico (izquierda): no distingue entre fases de partida (grande, chica, par, juego).\n
+    · Contador moderno (derecha): distingue entre diferentes fases de la partida.
+    </string>
+    <string name="infopartida_mayuda2">Para empezar de nuevo, reinicie la partida o cree una nueva en el menú principal</string>
 
 </resources>

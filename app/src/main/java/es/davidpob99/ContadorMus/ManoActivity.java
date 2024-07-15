@@ -1,29 +1,29 @@
 /*
- * Copyright (c) 2016 - 2019 David Población.
+ *  Copyright (c) 2024 David Población.
  *
- * This file is part of ContadorMus.
+ *  This file is part of ContadorMus.
  *
- * ContadorMus is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ *  ContadorMus is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * ContadorMus is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *  ContadorMus is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+ *  You should have received a copy of the GNU General Public License
+ *  along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package es.davidpob99.ContadorMus;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -31,9 +31,18 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
 public class ManoActivity extends AppCompatActivity {
@@ -107,6 +116,7 @@ public class ManoActivity extends AppCompatActivity {
     Button b46;
     Button b47;
     Button b48;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -179,8 +189,6 @@ public class ManoActivity extends AppCompatActivity {
         b47 = findViewById(R.id.button47);
         b48 = findViewById(R.id.button48);
 
-        mInterstitialAd = new InterstitialAd(this);
-
         e1Nombre.setText(mPartida.e1.nombre);
         e2Nombre.setText(mPartida.e2.nombre);
         e1Puntuacion.setText(String.valueOf(mPartida.e1.puntuacion));
@@ -194,6 +202,28 @@ public class ManoActivity extends AppCompatActivity {
         rb2Par = findViewById(R.id.checkE2Par);
         rb1Juego = findViewById(R.id.checkE1Juego);
         rb2Juego = findViewById(R.id.checkE2Juego);
+
+        AdRequest adRequestInter = new AdRequest.Builder().build();
+        InterstitialAd.load(this, getResources().getString(R.string.interstitial_full_screen), adRequestInter,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.d("Ads", loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -230,7 +260,7 @@ public class ManoActivity extends AppCompatActivity {
                             mPartida.finalizada = true;
                             mPartida.setMsg("HA GANADO " + mPartida.e1.nombre);
                             toast.show();
-                            cargarAnuncio();
+                            showInterstitial();
                         }
                     }
 
@@ -247,40 +277,16 @@ public class ManoActivity extends AppCompatActivity {
                             mPartida.setMsg("HA GANADO " + mPartida.e2.nombre);
                             mPartida.finalizada = true;
                             toast.show();
-                            cargarAnuncio();
+                            showInterstitial();
                         }
                     }
                 }
-
-                Gson gson = new Gson();
-                String mPartidaString = gson.toJson(mPartida);
-                Intent myIntent = new Intent(ManoActivity.this, InfoPartidaActivity.class);
-                myIntent.putExtra("partidaActual", mPartidaString); //Optional parameters
-                startActivity(myIntent);
+                if (!mPartida.finalizada)
+                    volver(true);
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Back button
         // grande.setFilters(new InputFilter[]{ new CustomRangeInputFilter(0,40)});
-    }
-
-    public void cargarAnuncio() {
-        // set the ad unit ID
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_full_screen));
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
-        // Load ads into Interstitial Ads
-        mInterstitialAd.loadAd(adRequest);
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            public void onAdLoaded() {
-                showInterstitial();
-            }
-        });
-    }
-
-    private void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
     }
 
     @Override
@@ -437,6 +443,61 @@ public class ManoActivity extends AppCompatActivity {
                 chica.setText(String.valueOf(Integer.valueOf(chica.getText().toString()) - Integer.valueOf(b48.getText().toString())));
                 break;
 
+        }
+    }
+
+    public void volver(boolean from) {
+        Gson gson = new Gson();
+        String mPartidaString = gson.toJson(mPartida);
+        Intent myIntent = new Intent(ManoActivity.this, InfoPartidaActivity.class);
+        myIntent.putExtra("partidaActual", mPartidaString);
+        if (from)
+            myIntent.putExtra("from", "ManoActivity");
+        startActivity(myIntent);
+    }
+
+    private void showInterstitial() {
+        mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+            @Override
+            public void onAdClicked() {
+                // Called when a click is recorded for an ad.
+                Log.d(TAG, "Ad was clicked.");
+                volver(false);
+            }
+
+            @Override
+            public void onAdDismissedFullScreenContent() {
+                // Called when ad is dismissed.
+                // Set the ad reference to null so you don't show the ad a second time.
+                Log.d(TAG, "Ad dismissed fullscreen content.");
+                mInterstitialAd = null;
+                volver(false);
+            }
+
+            @Override
+            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                // Called when ad fails to show.
+                Log.e(TAG, "Ad failed to show fullscreen content.");
+                mInterstitialAd = null;
+                volver(false);
+            }
+
+            @Override
+            public void onAdImpression() {
+                // Called when an impression is recorded for an ad.
+                Log.d(TAG, "Ad recorded an impression.");
+            }
+
+            @Override
+            public void onAdShowedFullScreenContent() {
+                // Called when ad is shown.
+                Log.d(TAG, "Ad showed fullscreen content.");
+            }
+        });
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(ManoActivity.this);
+        } else {
+            Log.d("Ads", "The interstitial ad wasn't ready yet.");
         }
     }
 }

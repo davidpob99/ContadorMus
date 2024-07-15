@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (c) 2016 - 2019 David Población.
+  ~  Copyright (c) 2024 David Población.
   ~
-  ~ This file is part of ContadorMus.
+  ~  This file is part of ContadorMus.
   ~
-  ~ ContadorMus is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
+  ~  ContadorMus is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
   ~
-  ~ ContadorMus is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
+  ~  ContadorMus is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
   ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -126,7 +126,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="TODO"
-                        android:tint="@color/colorPrimary"
+                        app:tint="@color/colorPrimary"
                         app:srcCompat="@drawable/ic_add_black_24dp" />
 
                     <Button
@@ -315,7 +315,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="TODO"
-                        android:tint="@color/colorPrimary"
+                        app:tint="@color/colorPrimary"
                         app:srcCompat="@drawable/ic_add_black_24dp" />
 
                     <Button
@@ -503,7 +503,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="TODO"
-                        android:tint="@color/colorPrimary"
+                        app:tint="@color/colorPrimary"
                         app:srcCompat="@drawable/ic_add_black_24dp" />
 
                     <Button
@@ -676,6 +676,7 @@
                     android:gravity="center"
                     android:text="0"
                     android:textStyle="bold" />
+
             </LinearLayout>
 
 
@@ -691,7 +692,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="TODO"
-                        android:tint="@color/colorPrimary"
+                        app:tint="@color/colorPrimary"
                         app:srcCompat="@drawable/ic_add_black_24dp" />
 
                     <Button
@@ -845,6 +846,18 @@
                     android:text="Ganador" />
 
             </RadioGroup>
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_margin="8sp"
+                app:adSize="BANNER"
+                app:adUnitId="@string/banner_id" />
+
         </LinearLayout>
     </ScrollView>
 

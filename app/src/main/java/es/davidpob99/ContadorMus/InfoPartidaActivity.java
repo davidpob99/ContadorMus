@@ -1,20 +1,20 @@
 /*
- * Copyright (c) 2016 - 2019 David Población.
+ *  Copyright (c) 2024 David Población.
  *
- * This file is part of ContadorMus.
+ *  This file is part of ContadorMus.
  *
- * ContadorMus is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ *  ContadorMus is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * ContadorMus is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *  ContadorMus is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+ *  You should have received a copy of the GNU General Public License
+ *  along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package es.davidpob99.ContadorMus;
@@ -26,17 +26,18 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -60,6 +61,7 @@ public class InfoPartidaActivity extends AppCompatActivity {
     TextView e1Vacas;
     TextView e2Vacas;
     TextView msg;
+    TextView ayuda;
     TextView fecha;
     TextView observaciones;
 
@@ -93,6 +95,7 @@ public class InfoPartidaActivity extends AppCompatActivity {
         e1Vacas = findViewById(R.id.tvE1Vacas);
         e2Vacas = findViewById(R.id.tvE2Vacas);
         msg = findViewById(R.id.tvMsg);
+        ayuda = findViewById(R.id.tvAyuda);
         fecha = findViewById(R.id.tvFecha);
         observaciones = findViewById(R.id.tvObservaciones);
 
@@ -101,10 +104,9 @@ public class InfoPartidaActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         fabClassic = findViewById(R.id.fabClassic);
 
-
         // ANUNCIOS
         mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
         // PREFERENCIAS
@@ -151,8 +153,9 @@ public class InfoPartidaActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
+        final String fromActivity = getIntent().getStringExtra("from");
+        if (fromActivity != null && fromActivity.equals("ManoActivity"))
+            fab.performClick();
     }
 
     @Override
@@ -216,6 +219,7 @@ public class InfoPartidaActivity extends AppCompatActivity {
                         mPartida.setMsg("EN JUEGO");
                         fab.setEnabled(true);
                         fabClassic.setEnabled(true);
+                        ayuda.setText(getResources().getString(R.string.infopartida_mayuda1));
                         fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#965994")));
                         fabClassic.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#005ecb")));
                         actualizarMarcador();
@@ -231,10 +235,10 @@ public class InfoPartidaActivity extends AppCompatActivity {
         e2Nombre.setText(mPartida.e2.getNombre() + "\n" + " (" + mPartida.e2.getJugador1() + " - " + mPartida.e2.getJugador2() + ")");
         e1Puntuacion.setText(String.valueOf(mPartida.e1.getPuntuacion()));
         e2Puntuacion.setText(String.valueOf(mPartida.e2.getPuntuacion()));
-        e1Juegos.setText(String.valueOf(mPartida.e1.getJuegos()) + " / " + String.valueOf(mPartida.getNjuegos()));
-        e2Juegos.setText(String.valueOf(mPartida.e2.getJuegos()) + " / " + String.valueOf(mPartida.getNjuegos()));
-        e1Vacas.setText(String.valueOf(mPartida.e1.getVacas()) + " / " + String.valueOf(mPartida.getNvacas()));
-        e2Vacas.setText(String.valueOf(mPartida.e2.getVacas()) + " / " + String.valueOf(mPartida.getNvacas()));
+        e1Juegos.setText(mPartida.e1.getJuegos() + " / " + mPartida.getNjuegos());
+        e2Juegos.setText(mPartida.e2.getJuegos() + " / " + mPartida.getNjuegos());
+        e1Vacas.setText(mPartida.e1.getVacas() + " / " + mPartida.getNvacas());
+        e2Vacas.setText(mPartida.e2.getVacas() + " / " + mPartida.getNvacas());
         msg.setText(String.valueOf(mPartida.getMsg()));
         DateFormat df = new SimpleDateFormat("EEEE, dd/MM/yyyy HH:mm:ss");
         fecha.setText(df.format(mPartida.getFecha()));
@@ -245,6 +249,7 @@ public class InfoPartidaActivity extends AppCompatActivity {
             fab.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
             fabClassic.setEnabled(false);
             fabClassic.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+            ayuda.setText(getResources().getString(R.string.infopartida_mayuda2));
         }
     }
 

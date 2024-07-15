@@ -1,32 +1,34 @@
 <!--
-  ~ Copyright (c) 2016 - 2019 David Población.
+  ~  Copyright (c) 2024 David Población.
   ~
-  ~ This file is part of ContadorMus.
+  ~  This file is part of ContadorMus.
   ~
-  ~ ContadorMus is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
+  ~  ContadorMus is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
   ~
-  ~ ContadorMus is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
+  ~  ContadorMus is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
   ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="es.davidpob99.ContadorMus.ContadorActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="30dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -62,30 +64,31 @@
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="40sp"
                 android:textStyle="bold" />
+
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textView2"
+                app:tint="@android:color/holo_blue_light"
                 app:srcCompat="@drawable/ic_add_black_24dp"
-                android:tint="@android:color/holo_blue_light"
                 tools:ignore="VectorDrawableCompat" />
 
             <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/imageView2"
-                android:id="@+id/linearLayout"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/button1"
-                    android:backgroundTint="@android:color/holo_blue_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_blue_light"
                     android:text="@string/uno" />
 
                 <Button
@@ -93,41 +96,41 @@
                     android:id="@+id/button2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_blue_light"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_blue_light"
                     android:text="@string/dos" />
 
                 <Button
                     android:id="@+id/button3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_blue_light"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_blue_light"
                     android:text="@string/tres" />
 
                 <Button
                     android:id="@+id/button4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_blue_light"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_blue_light"
                     android:text="@string/cinco" />
 
                 <Button
                     android:id="@+id/button5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_blue_light"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_blue_light"
                     android:text="@string/diez" />
 
                 <Button
                     android:id="@+id/button6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_blue_light"
                     android:layout_weight="1"
-                    android:text="@string/cuarenta"/>
+                    android:backgroundTint="@android:color/holo_blue_light"
+                    android:text="@string/cuarenta" />
             </LinearLayout>
 
             <ImageView
@@ -139,12 +142,12 @@
                 tools:ignore="VectorDrawableCompat" />
 
             <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/imageView3"
-                android:id="@+id/linearLayout2"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:orientation="horizontal">
 
 
@@ -152,56 +155,56 @@
                     android:id="@+id/button7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@android:color/black"
                     android:layout_weight="1"
-                    android:text="@string/uno" />
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/uno"
+                    android:textColor="@android:color/white" />
 
                 <Button
 
                     android:id="@+id/button8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@android:color/black"
                     android:layout_weight="1"
-                    android:text="@string/dos" />
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/dos"
+                    android:textColor="@android:color/white" />
 
                 <Button
                     android:id="@+id/button9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@android:color/black"
                     android:layout_weight="1"
-                    android:text="@string/tres" />
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/tres"
+                    android:textColor="@android:color/white" />
 
                 <Button
                     android:id="@+id/button10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@android:color/black"
                     android:layout_weight="1"
-                    android:text="@string/cinco" />
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/cinco"
+                    android:textColor="@android:color/white" />
 
                 <Button
                     android:id="@+id/button11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@android:color/black"
                     android:layout_weight="1"
-                    android:text="@string/diez" />
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/diez"
+                    android:textColor="@android:color/white" />
 
                 <Button
                     android:id="@+id/button12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@android:color/black"
                     android:layout_weight="1"
-                    android:text="@string/cuarenta"/>
+                    android:backgroundTint="@android:color/black"
+                    android:text="@string/cuarenta"
+                    android:textColor="@android:color/white" />
             </LinearLayout>
 
             <!-- JUGADOR 2 -->
@@ -236,30 +239,31 @@
                 android:textColor="@android:color/holo_red_light"
                 android:textSize="40sp"
                 android:textStyle="bold" />
+
             <ImageView
                 android:id="@+id/imageView101"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textView102"
+                app:tint="@android:color/holo_red_light"
                 app:srcCompat="@drawable/ic_add_black_24dp"
-                android:tint="@android:color/holo_red_light"
                 tools:ignore="VectorDrawableCompat" />
 
             <LinearLayout
+                android:id="@+id/linearLayout101"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/imageView101"
-                android:id="@+id/linearLayout101"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/button101"
-                    android:backgroundTint="@android:color/holo_red_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_light"
                     android:text="@string/uno" />
 
                 <Button
@@ -267,41 +271,41 @@
                     android:id="@+id/button102"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_red_light"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_light"
                     android:text="@string/dos" />
 
                 <Button
                     android:id="@+id/button103"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_red_light"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_light"
                     android:text="@string/tres" />
 
                 <Button
                     android:id="@+id/button104"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_red_light"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_light"
                     android:text="@string/cinco" />
 
                 <Button
                     android:id="@+id/button105"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_red_light"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_light"
                     android:text="@string/diez" />
 
                 <Button
                     android:id="@+id/button106"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_red_light"
                     android:layout_weight="1"
-                    android:text="@string/cuarenta"/>
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:text="@string/cuarenta" />
             </LinearLayout>
 
             <ImageView
@@ -316,9 +320,9 @@
                 android:id="@+id/linearLayout102"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_below="@id/imageView102"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:orientation="horizontal">
 
 
@@ -378,19 +382,20 @@
                     android:textColor="@android:color/white" />
             </LinearLayout>
 
-            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            <com.google.android.gms.ads.AdView
                 android:id="@+id/adView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout102"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:layout_margin="8sp"
-                android:layout_below="@id/linearLayout102"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/banner_home_footer" />
+                app:adSize="BANNER"
+                app:adUnitId="@string/banner_id" />
         </RelativeLayout>
 
 
     </ScrollView>
-</FrameLayout>
+
+</LinearLayout>

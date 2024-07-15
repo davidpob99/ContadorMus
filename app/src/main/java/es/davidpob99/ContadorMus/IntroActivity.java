@@ -1,25 +1,26 @@
 /*
- * Copyright (c) 2016 - 2019 David Población.
+ *  Copyright (c) 2024 David Población.
  *
- * This file is part of ContadorMus.
+ *  This file is part of ContadorMus.
  *
- * ContadorMus is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ *  ContadorMus is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * ContadorMus is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *  ContadorMus is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
+ *  You should have received a copy of the GNU General Public License
+ *  along with ContadorMus.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package es.davidpob99.ContadorMus;
 
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -43,16 +44,16 @@ public class IntroActivity extends AppIntro {
                 getResources().getColor(R.color.colorPrimary)));
 
         addSlide(AppIntroFragment.newInstance("Información",
-                "Para guardar una nueva jugada o lance, pulse en cualquiera de los botones inferiores, dependiendo si se prefiere el contador moderno o el clásico.",
+                "Para guardar una nueva jugada o lance, pulse en cualquiera de los botones inferiores, dependiendo si se prefiere el contador moderno (derecha) o el clásico (izquierda).",
                 R.drawable.screenshot_info,
                 getResources().getColor(R.color.colorPrimaryDark)));
 
-        addSlide(AppIntroFragment.newInstance("Moderno",
+        addSlide(AppIntroFragment.newInstance("Opción A: Contador Moderno",
                 "Rellene los datos correspondientes a cada jugada y después de haber descubierto las cartas marque el ganador de cada una y pulse el botón.",
                 R.drawable.screenshot_mano,
                 getResources().getColor(R.color.colorAccent)));
 
-        addSlide(AppIntroFragment.newInstance("Clásico",
+        addSlide(AppIntroFragment.newInstance("Opción B: Contador Clásico",
                 "Posibilidad de acceder al antiguo contador pulsando el botón izquierdo a la hora de comenzar una nueva jugada.",
                 R.drawable.screenshot_classic,
                 getResources().getColor(R.color.cardview_dark_background)));
